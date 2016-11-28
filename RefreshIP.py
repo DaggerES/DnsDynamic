@@ -12,7 +12,7 @@ def TryGetIpAddress(url, regex, timeout):
     try:
         return re.search(regex, urllib2.urlopen(url, timeout=5).read()).group(1)
     except:
-        return ""
+        return "0"
 
 def GetMyIP():
     import urllib2, re
