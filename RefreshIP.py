@@ -5,7 +5,7 @@
 
 username = "USERNAME" #Your username is the email you've registered on https://www.dnsdynamic.org
 password = "PASSWORD" #The password you use on https://www.dnsdynamic.org
-hostname = "HOSTNAME" #The hostname you use on https://www.dnsdynamic.org
+hostnames = "HOSTNAME" #The hostname/s you use on https://www.dnsdynamic.org. You can add several hostnames separated by comma
 
 def TryGetIpAddress(url, regex, timeout):
     import urllib2, re
@@ -36,9 +36,9 @@ def GetMyIP():
 def RefreshIP():
     import urllib
     try:
-        url = "https://" + username + ":" + password + "@www.dnsdynamic.org/api/?hostname=" + hostname + "&myip=" + GetMyIP()
-        returnMsg = urllib.urlopen(url).read()
-        print returnMsg
+	for hostname in [x.strip() for x in hostnames.split(',')]:
+		url = "https://" + username + ":" + password + "@www.dnsdynamic.org/api/?hostname=" + hostname + "&myip=" + GetMyIP()
+		print urllib.urlopen(url).read()
     except:
         print "Could not update IP!"
 
