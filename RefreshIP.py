@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
-#Created by Dagger - https://github.com/DaggerES/DnsDynamic
+#Created by Dagger - https://github.com/gavazquez/DnsDynamic
 #Script for refreshing your IP against the https://www.dnsdynamic.org service
 
 username = "USERNAME" #Your username is the email you've registered on https://www.dnsdynamic.org
